@@ -1,48 +1,21 @@
-const mysql = require('mysql')
-var faker = require('faker');
-
-const conn = mysql.createConnection({
-    host: "localhost", 
-    user: "root",
-    database: "mydb",
-    password: "Bmstu1830"
-});
-
-conn.connect(function (err) {
-    if (err) {
-        return console.error("Ошибка: " + err.message);
-    }
-    else {
-        console.log("Подключение к серверу MySQL успешно установлено");
-    }
-});
-
-// for(let i =0; i < 100000; i++){
-//     let day = faker.date.between(1958, 2000)
-//     let q = `insert into people (id, name, surname, sex, date, citizenship)
-//       values(${i+1}, "${faker.name.firstName()}", "${faker.name.lastName()}", "${Math.random() > 0.5 ? "Male": "Female"}", "${day.getFullYear()}-${day.getMonth()+1}-${day.getDate()}", "${faker.address.country()}");`
-// conn.query(q , (err, result, field) =>{
-//     console.log(err);
-//     console.log(result);
-//      console.log(field);
-// });
-// }
+const express = require('express')
+const exphbs = require('express-handlebars')
+const homeRoutes = require('./routes/home')
+const router = express()
+const hbs = exphbs.create({
+    defaultLayout: 'main',
+    extname: 'hbs'
+})
 
 
-let query="SELECT * FROM people";
+router.engine('hbs', hbs.engine)
+router.set('view engine', 'hbs')
+router.set('views', 'views')
+// app.use(express.static('public'))
+// app.use(express.urlencoded({extended: true}))
+router.use('/', homeRoutes)
 
-conn.query(query, (err, result, field) =>{
-    console.log(err);
-    console.log(result);
-     // console.log(field);
-});
-
-conn.end( err => {
-    if (err) {
-        console.log(err);
-        return err;
-    }
-    else {
-        console.log('Database ----- Close');
-    }
-});
+const PORT = process.env.PORT || 3000
+router.listen(PORT, ()=>{
+    console.log(`port ${PORT}`)
+})
