@@ -26,8 +26,8 @@ router.get('/', (req,res) =>{
     conn.query(query, (err, result, field) =>{
     console.log(err);
     console.log(result);
-
-    res.render('index', {result: result[0]['sex']})
+    let mas = result
+    res.render('index', {result: mas})
     conn.end()
 });
 })

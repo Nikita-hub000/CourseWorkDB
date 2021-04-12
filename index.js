@@ -11,8 +11,8 @@ const hbs = exphbs.create({
 router.engine('hbs', hbs.engine)
 router.set('view engine', 'hbs')
 router.set('views', 'views')
-// app.use(express.static('public'))
-// app.use(express.urlencoded({extended: true}))
+router.use(express.static('styles'))
+router.use(express.urlencoded({extended: true}))
 router.use('/', homeRoutes)
 
 const PORT = process.env.PORT || 3000
