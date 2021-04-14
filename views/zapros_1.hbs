@@ -1,0 +1,17 @@
+<p>Запрос на выборку событий которые произошли в 21 веке в этом век</p>
+<table>
+<tr>
+  <th>ID</th>
+  <th>BORN DATE</th>
+  <th>CEREMONY DATE</th>
+  <th>DEATH DATE</th>
+  </tr>
+    {{#each result}}
+ <tr>
+  <td>{{id}}</td>
+  <td>{{dateB}}</td>
+  <td>{{dateC}}</td> 
+  <td>{{dateD}}</td> 
+ </tr>
+    {{/each}}
+    </table>

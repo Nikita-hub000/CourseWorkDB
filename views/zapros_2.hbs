@@ -1,0 +1,17 @@
+<p>Запрос на выборку рабочих которые заполняли свидетельства и рождения и смерти и свадьбы</p>
+<table>
+<tr>
+  <th>WORK ID</th>
+  <th>ID IN ZAGS DB</th>
+  <th>NAME</th>
+  <th>SEX</th>
+  </tr>
+    {{#each result}}
+ <tr>
+  <td>{{empC}}</td>
+  <td>{{specialId}}</td>
+  <td>{{name}}</td> 
+  <td>{{sex}}</td> 
+ </tr>
+    {{/each}}
+    </table>

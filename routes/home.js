@@ -22,12 +22,17 @@ router.get('/', (req,res) =>{
             console.log("Подключение к серверу MySQL успешно установлено");
         }
     });
-    let query="SELECT * FROM people";
+    let query=`select people.id, people.name, people.surname, people.sex 
+    from born, marriage, people
+    where born.fatherId = marriage.husbandId  and born.fatherId = people.id or born.motherId = marriage.wifeId and born.motherId = people.id;`
     conn.query(query, (err, result, field) =>{
     console.log(err);
     console.log(result);
-    let mas = result
-    res.render('index', {result: mas})
+    res.render('index', {
+        result: result,
+        isHome: true,
+        title: 'home'
+    })
     conn.end()
 });
 })

@@ -1,0 +1,26 @@
+<nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {{#if isHome}}
+        <li class="active"><a href="/">Запрос 1</a></li>
+        {{else}}
+        <li><a href="/">Запрос 1</a></li>
+{{/if}}
+  {{#if isZapros1}}
+        <li class="active"><a href="/zapros_1">Запрос 2</a></li>
+        {{else}}
+        <li><a href="/zapros_1">Запрос 2</a></li>
+        {{/if}}
+{{#if isZapros2}}
+        <li class="active"><a href="/zapros_3">Запрос 3</a></li>
+        {{else}}
+                <li><a href="/zapros_3">Запрос 3</a></li>
+{{/if}}
+{{#if isZapros3}}
+        <li class="active"><a href="/zapros_4">Запрос 4</a></li>
+        {{else}}
+                <li><a href="/zapros_4">Запрос 4</a></li>
+{{/if}}
+      </ul>
+    </div>
+  </nav>

@@ -4,32 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{title}}</title>
     <link rel="stylesheet" href="/index.css">
     </head>
 <body>
+    {{> navbar}}
     {{{body}}}
-    <table>
-<tr>
-  <th>ID</th>
-  <th>NAME</th>
-  <th>SURNAME</th>
-  <th>GENDER</th>
-  <th>CITIZENSHIP</th>
-  </tr>
-    {{#each result}}
- <tr>
-  <td>{{id}}</td>
-  <td>{{name}}</td>
-  <td>{{surname}}</td>
-  <td>{{sex}}</td>
-  <td>{{citizenship}}</td>
- </tr>
-
     
-
-    {{/each}}
-    </table>
-  
+  {{> footer}}
 </body>
 </html>
