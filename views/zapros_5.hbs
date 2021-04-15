@@ -1,0 +1,15 @@
+<p class="txt">Запрос на выборку рабочих с опытом более 10 лет которые оформляли свидетельства о рождении</p>
+<table>
+<tr>
+  <th>EMPLOYEE ID</th>
+  <th>WORK EXPERIENCE</th>
+  <th>CONTRACT ID</th>
+  </tr>
+    {{#each result}}
+ <tr>
+  <td>{{employeeId}}</td>
+  <td>{{workExperience}}</td> 
+  <td>{{contract}}</td>
+ </tr>
+    {{/each}}
+    </table>
